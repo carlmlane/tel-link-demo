@@ -6,15 +6,23 @@
 <h1>tel link demo</h1><br>
 <a href="tel:16195199264" target="_blank">Call me now NOT in an iframe</a>
 <hr></br>
-<iframe id='test'>
+
+<iframe id='test-fail'>
   
 </iframe>
 
+<iframe id='test-pass'>
+  
+</iframe>
 
 <script>
-var iframe = document.getElementById("test");
-var iframeContent = iframe.contentDocument;
-iframeContent.write('<a target="_parent" href = "tel://16195199264">Call me now in an iframe</a>');
+var iframeOne = document.getElementById("test-fail");
+var iframeContentOne = iframeOne.contentDocument;
+iframeContentOne.write('<a target="_blank" href = "tel://16195199264">Call me now in an iframe that FAILS</a>');
+
+var iframeTwo = document.getElementById("test-pass");
+var iframeContentTwo = iframeTwo.contentDocument;
+iframeContentTwo.write('<a target="_parent" href = "tel://16195199264">Call me now in an iframe that WORKS</a>');
 </script>
 </body>
 </html>
